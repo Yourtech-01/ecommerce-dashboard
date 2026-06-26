@@ -28,8 +28,8 @@ def load_data():
     orders["year"]       = orders["order_date"].dt.year
 
     full = orders.merge(customers[["customer_id","region","channel","age_group"]],
-                        on="customer_id").merge(
-                        products[["product_id","category"]], on="product_id")
+                    on="customer_id").merge(
+                    products[["product_id","category","product_name"]], on="product_id")
     return orders, customers, products, full
 
 orders, customers, products, full = load_data()
