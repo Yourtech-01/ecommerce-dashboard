@@ -3,6 +3,7 @@ generate_data.py — Creates a realistic synthetic e-commerce dataset.
 Run once: python generate_data.py
 """
 import sqlite3
+import os
 import random
 import pandas as pd
 import numpy as np
@@ -101,7 +102,8 @@ orders["profit"]  = ((orders["price"] - orders["cost"]) * orders["quantity"]).ro
 orders["year_month"] = pd.to_datetime(orders["order_date"]).dt.to_period("M").astype(str)
 
 # ── Write to SQLite ───────────────────────────────────────────────────────────
-conn = sqlite3.connect("data/ecommerce.db")
+db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "ecommerce.db")
+conn = sqlite3.connect(db_path)
 customers.to_sql("customers",  conn, if_exists="replace", index=False)
 products_df.to_sql("products", conn, if_exists="replace", index=False)
 orders.to_sql("orders",        conn, if_exists="replace", index=False)
