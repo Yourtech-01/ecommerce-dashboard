@@ -103,6 +103,7 @@ orders["year_month"] = pd.to_datetime(orders["order_date"]).dt.to_period("M").as
 
 # ── Write to SQLite ───────────────────────────────────────────────────────────
 db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "ecommerce.db")
+os.makedirs("data", exist_ok=True)
 conn = sqlite3.connect(db_path)
 customers.to_sql("customers",  conn, if_exists="replace", index=False)
 products_df.to_sql("products", conn, if_exists="replace", index=False)
