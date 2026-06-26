@@ -3,6 +3,7 @@ app.py — E-Commerce Sales Intelligence Dashboard
 Run: python app.py  →  http://localhost:8050
 """
 import sqlite3
+import os
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -14,7 +15,8 @@ import dash_bootstrap_components as dbc
 
 # ── Load data ─────────────────────────────────────────────────────────────────
 def load_data():
-    conn = sqlite3.connect("data/ecommerce.db")
+    db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "ecommerce.db")
+    conn = sqlite3.connect(db_path)
     orders    = pd.read_sql("SELECT * FROM orders",    conn)
     customers = pd.read_sql("SELECT * FROM customers", conn)
     products  = pd.read_sql("SELECT * FROM products",  conn)
@@ -279,6 +281,6 @@ def update_all(cat, date_range):
             fig_rev, fig_pie, fig_reg, fig_ch,
             fig_st, fig_tp, fig_ag)
 
-
+server = app.server
 if __name__ == "__main__":
     app.run(debug=True, port=8050)
