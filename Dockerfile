@@ -10,4 +10,4 @@ RUN python generate_data.py
 
 EXPOSE 10000
 
-CMD ["gunicorn", "app:server", "--bind", "0.0.0.0:10000"]
+CMD ["gunicorn", "app:server", "--bind", "0.0.0.0:10000", "--workers", "1", "--timeout", "120"]
