@@ -1,5 +1,14 @@
 # E-Commerce Sales Intelligence Dashboard
 
+🚀 **Live Demo:** [https://ecommerce-dashboard-2-u4rt.onrender.com]
+
+⚡ Note: App may take 30 seconds to load on first visit (free tier cold start)
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Dash](https://img.shields.io/badge/Dash-2.17-informational)
+![Plotly](https://img.shields.io/badge/Plotly-5.22-blueviolet)
+![Render](https://img.shields.io/badge/Deployed-Render-brightgreen)
+
 An interactive analytics dashboard built with **Plotly Dash** that gives business 
 stakeholders a full view of sales performance, customer behaviour, and product trends.
 
